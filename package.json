@@ -1,0 +1,14 @@
+{
+  "author": "Rishabh Rao",
+  "name": "World Clock and Weather",
+  "version": "0.0.0",
+  "dependencies": {
+    "jQuery": "1.8.3",
+    "KnockoutJS": "2.2.1",
+    "Debug": "0.4.0",
+    "RequireJS": "2.1.2"
+  },
+  "devDependencies": {
+    "Yeoman.io": "0.9.6"
+  }
+}
