@@ -8,6 +8,8 @@
     "javascript-debug": "git://github.com/cowboy/javascript-debug.git",
     "requirejs": "~2.1.2",
     "requirejs-domready": "~2.0.1",
-    "requirejs-use": "git://github.com/tbranyen/use.js.git"
+    "requirejs-use": "git://github.com/tbranyen/use.js.git",
+    "bootstrap-sass": "~2.2.2",
+    "font-awesome": "~3.0.2"
   }
 }
