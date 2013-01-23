@@ -10,6 +10,7 @@
     "requirejs-domready": "~2.0.1",
     "requirejs-use": "git://github.com/tbranyen/use.js.git",
     "bootstrap-sass": "~2.2.2",
-    "font-awesome": "~3.0.2"
+    "font-awesome": "~3.0.2",
+    "timezone-js": "https://github.com/mde/timezone-js.git#~0.4.4"
   }
 }
