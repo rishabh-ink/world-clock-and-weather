@@ -12,6 +12,6 @@
     "bootstrap-sass": "~2.2.2",
     "font-awesome": "~3.0.2",
     "timezone-js": "https://github.com/mde/timezone-js.git#~0.4.4",
-    "knockout.mapping": "https://github.com/SteveSanderson/knockout.mapping.git#~2.3.5"
+    "knockout-mapping": "https://github.com/SteveSanderson/knockout.mapping.git#~2.3.5"
   }
 }
