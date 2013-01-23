@@ -5,35 +5,38 @@
     paths: {
       'hm':                 "vendor/hm",
       'esprima':            "vendor/esprima",
-      'domready':           "../components/requirejs-domready/domReady",             // requirejs.com/docs/download.html#domReady
-      'lib.use':            "../components/use.js/use",                              // documentup.com/tbranyen/use.js
-      'jquery':         "../components/jquery/jquery",                           // jquery.com
-      'lib.knockoutjs':     "../components/knockout-2.2.1/index",                    // knockoutjs.com
-      'lib.jquery-mobile':  "../components/jquery.mobile-1.2.0/jquery.mobile-1.2.0", // jquerymobile.com
-      'lib.debug':          "../components/javascript-debug/ba-debug"                // benalman.com/code/projects/javascript-debug
+      'domready':           "../components/requirejs-domready/domReady", // requirejs.com/docs/download.html#domReady
+      'lib.use':            "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
+      'jquery':             "../components/jquery/jquery", // jquery.com
+      'lib.knockoutjs':     "../components/knockoutjs/index", // knockoutjs.com
+      'lib.jquery-mobile':  "../components/jquery-mobile/jquery.mobile-1.2.0", // jquerymobile.com
+      'lib.debug':          "../components/javascript-debug/ba-debug" // benalman.com/code/projects/javascript-debug
     },
 
     shim: {
       'lib.use!lib.jquery-mobile': {
         deps: [
-          'jquery'
+          "jquery"
         ]
       }
     },
 
     use: {
-      'debug': {
+      'lib.debug': {
         'attach': "debug"
+      },
+      'lib.jquery-mobile': {
+        'attach': "jquery"
       }
     }
   });
-   
+
   require([
-    "lib.app",
+    "app",
     "jquery",
     "lib.knockoutjs",
-    "lib.jquery-mobile",
-    "lib.debug"
+    "lib.use!lib.jquery-mobile",
+    "lib.use!lib.debug"
   ], function(
     app,
     jQuery,
