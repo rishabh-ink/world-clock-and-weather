@@ -1,7 +1,10 @@
-// Compass Twitter Bootstrap
-@import "compass-twitter-bootstrap/compass_twitter_bootstrap_awesome";
-@import "compass-twitter-bootstrap/compass_twitter_bootstrap_responsive";
+// SASS Twitter Bootstrap (github.com/jlong/sass-twitter-bootstrap)
+@import "../../components/bootstrap-sass/lib/bootstrap";
+@import "../../components/bootstrap-sass/lib/responsive";
 
-// jQuery Mobile
-@import "../../components/jquery-mobile/jquery.mobile.structure-1.2.0.css";
-@import "../../components/jquery-mobile/jquery.mobile.theme-1.2.0.css";
+// Font Awesome (fortawesome.github.com/Font-Awesome)
+@import "../../components/font-awesome/sass/font-awesome";
+
+// jQuery Mobile (jquerymobile.com)
+@import "../../components/jquery-mobile/jquery.mobile.structure-1.2.0";
+@import "../../components/jquery-mobile/jquery.mobile.theme-1.2.0";
