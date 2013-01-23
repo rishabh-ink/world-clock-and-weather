@@ -8,72 +8,24 @@
 define({
 	module: {
 		model: {
-			task: {
-				TaskModel: {
-					status: {
-						"1": {
-							'name': "1",
-							'label': "label label-success",
-							'humanName': "Completed"
-						},
-						"0": {
-							'name': "0",
-							'label': "label label-info",
-							'humanName': "In Process"
-						},
-						"2": {
-							'name': "2",
-							'label': "label label-important",
-							'humanName': "Blocked"
-						},
-						DEFAULT: {
-							'name': "",
-							'label': "label",
-							'humanName': "Not available"
-						}
-					},
-
-					mappings: {
-						'auditName'    : 0,
-						'taskName'     : 1,
-						'status'       : 2,
-						'auditor'      : 3,
-						'approver'     : 4,
-						'finalApprover': 5,
-						'startDate'    : 6,
-						'endDate'      : 7,
-						'type'         : 8,
-						'details'      : 9
-					}
-				}
-			}
 		}
 	},
 
 	api: {
-		metricstream: {
-			baseUrl: "data/sample.json",
+		pipe: {
+			baseUrl: "",
 			methods: {
-				task: {
-					receive: {
-						url: "/tasksD/getTask"
-					},
-					transmit: {
-						url: "/tasksD/addTask"
-					}
-				}
+				weather: "",
+				timezone: ""
 			}
 		}
 	},
 
 	keyrings: {
-		tasks: "MSI_APP_TASKS",
-
-		settings: "MSI_APP_SETTINGS"
 	},
 
 	refreshTimeouts: {
-		tasks: (1 * 60 * 1000) // 2 mins in milliseconds.
+		cache: (120 * 60 * 1000) // 120 mins in milliseconds.
 	},
 
 	errors: {
@@ -96,6 +48,12 @@ define({
 			}
 		},
 
+		geolocation: {
+			NOT_AVAILABLE: {
+				message: "geolocation not supported."
+			}
+		},
+
 		communication: {
 			OK: {
 				code: 0,
@@ -109,23 +67,5 @@ define({
 		}
 	},
 
-	"templateConfiguration": {
-		"templates": [{
-			"tagId": "page-settings",
-			"url": "tmpl/pages/page-settings.html"
-		}, {
-			"tagId": "template-tasks-list",
-			"url": "tmpl/tasks-list.html"
-		}, {
-			"tagId": "template-task-detail",
-			"url": "tmpl/task-detail.html"
-		}]
-	},
-
-	settings: {
-		general: {
-			username: "SYSTEMI",
-			password: "welcome*12"
-		}
-	}
+	settings: {}
 });
