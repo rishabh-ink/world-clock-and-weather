@@ -1,1 +1,8 @@
-@import "compass_twitter_bootstrap";
+// Third party vendor libs
+@import "vendor/vendor";
+
+// Utilities
+@import "util/util";
+
+// UI Components
+@import "ui/ui";
