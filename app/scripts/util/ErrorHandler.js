@@ -21,19 +21,19 @@ function(
 	var Module = function() {
 		var self = this;
 
-		self.showError = function(error) {
+		Module.prototype.showError = function(error) {
 			debug.error(error);
 			jQuery.mobile.showPageLoadingMsg("e", error, true);
 			setTimeout(jQuery.mobile.hidePageLoadingMsg, Constants.errors.timeoutError);
 		};
 
-		self.showWarn = function(error) {
+		Module.prototype.showWarn = function(error) {
 			debug.warn(error);
 			jQuery.mobile.showPageLoadingMsg("e", error, true);
 			setTimeout(jQuery.mobile.hidePageLoadingMsg, Constants.errors.timeoutWarn);
 		};
 
-		self.showInfo = function(error) {
+		Module.prototype.showInfo = function(error) {
 			debug.info(error);
 			jQuery.mobile.showPageLoadingMsg("a", error, true);
 			setTimeout(jQuery.mobile.hidePageLoadingMsg, Constants.errors.timeoutInfo);
