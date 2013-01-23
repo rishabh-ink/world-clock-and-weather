@@ -19,7 +19,7 @@ function(
 	var Module = function() {
 		var self = this;
 
-		self.save = function(key, value) {
+		Module.prototype.save = function(key, value) {
 			if(Modernizr.localstorage) {
 				debug.log("Attempting to save to localStorage", key, value);
 				localStorage.setItem(key, ko.toJSON(value));
@@ -31,7 +31,7 @@ function(
 			}
 		};
 
-		self.isAlreadyAvailable = function(key) {
+		Module.prototype.isAlreadyAvailable = function(key) {
 			if(Modernizr.localstorage) {
 				if(null !== localStorage.getItem(key)) {
 					return Constants.errors.storage.FOUND;
@@ -45,7 +45,7 @@ function(
 			}
 		};
 
-		self.load = function(key) {
+		Module.prototype.load = function(key) {
 			debug.log("Attempting to load from localStorage", key);
 			if(Modernizr.localstorage) {
 				var value = localStorage.getItem(key);
@@ -64,7 +64,7 @@ function(
 			}
 		};
 
-		self.clear = function() {
+		Module.prototype.clear = function() {
 			if(Modernizr.localstorage) {
 				localStorage.clear();
 				debug.log("util.Storage", "Cleared localStorage");
