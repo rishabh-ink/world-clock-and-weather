@@ -1,19 +1,38 @@
-define(["lib.use!lib.debug"], function(debug) {
+define([
+  "lib.use!lib.debug",
+  "lib.knockoutjs"
+], function(debug, ko) {
   "use strict";
 
-  var self = this;
+  var Module = function() {
+    var self = this;
 
-  self.name = "";
+    self.city = {
+      geo: {
+        name: ko.observable(),
+        country: ko.observable(),
+        timezoneOffset: ko.observable()
+      },
 
-  self.weather = {
-    temperature: {
-      average: 0,
-      maximum: 0,
-      minimum: 0
-    },
+      weather: {
+        temperature: {
+          average: ko.observable(),
+          maximum: ko.observable(),
+          minimum: ko.observable()
+        },
 
-    description: ""
+        text: ko.observable()
+      }
+    };
+
+    Module.prototype.applyMappings = function(value) {
+      debug.log("model.city.applyMappings", value);
+    };
   };
 
-
+  return {
+    create: function() {
+      return new Module();
+    }
+  };
 });

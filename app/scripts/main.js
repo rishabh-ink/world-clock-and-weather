@@ -10,11 +10,13 @@
       'jquery':             "../components/jquery/jquery", // jquery.com
       'lib.knockoutjs':     "../components/knockoutjs/index", // knockoutjs.com
       'lib.jquery-mobile':  "../components/jquery-mobile/jquery.mobile-1.2.0", // jquerymobile.com
-      'lib.debug':          "../components/javascript-debug/ba-debug" // benalman.com/code/projects/javascript-debug
+      'lib.debug':          "../components/javascript-debug/ba-debug", // benalman.com/code/projects/javascript-debug
+
+      'model.city':         "model/City"
     },
 
     shim: {
-      'lib.use!lib.jquery-mobile': {
+      'lib.jquery-mobile': {
         deps: [
           "jquery"
         ]
@@ -24,9 +26,6 @@
     use: {
       'lib.debug': {
         'attach': "debug"
-      },
-      'lib.jquery-mobile': {
-        'attach': "jquery"
       }
     }
   });
@@ -35,21 +34,29 @@
     "app",
     "jquery",
     "lib.knockoutjs",
-    "lib.use!lib.jquery-mobile",
-    "lib.use!lib.debug"
+    "lib.jquery-mobile",
+    "lib.use!lib.debug",
+    "model.city"
   ], function(
     app,
     jQuery,
     ko,
     jQm,
-    debug
+    debug,
+    City
   ) {
-    console.log({
-      app: app,
-      jQuery: jQuery,
-      ko: ko,
-      jQm: jQm,
-      debug: debug
-    });
+
+
+    var cityBangalore = City.create();
+    var cityParis = City.create();
+
+    cityBangalore.city.geo.name("BAngalore");
+    debug.log(cityBangalore.city.geo.name());
+
+    cityBangalore.applyMappings({});
+
+    // cityBangalore.module.city.geo.name("Bangalore");
+
+    debug.log(cityBangalore, cityParis);
   });
 })();

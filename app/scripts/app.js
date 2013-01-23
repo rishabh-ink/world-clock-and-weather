@@ -1,3 +1,3 @@
-define([], function() {
-  return 'Hello from Yeoman!';
+define(["model.city", "lib.use!lib.debug"], function(city, debug) {
+
 });
