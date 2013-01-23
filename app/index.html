@@ -14,12 +14,37 @@
         <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
-
-        <div data-role="page">
+        <div id="indexpage" data-role="page">
             <header data-role="header" data-position="fixed">
                 <h1>World Clock and Weather</h1>
                 <a href="#" data-role="button" data-icon="gear" class="ui-btn-right">Settings</a>
             </header>
+
+            <div data-role="content">
+                <h2>Hello world</h2>
+                <a href="#otherpage">Other page</a>
+            </div>
+
+            <footer data-role="footer">
+                <p><small>Copyright</small></p>
+            </footer>
+
+        </div>
+
+        <div id="otherpage" data-role="page">
+            <header data-role="header" data-position="fixed">
+                <h1>Other page</h1>
+                <a href="#" data-role="button" data-icon="gear" class="ui-btn-right">Settings</a>
+            </header>
+
+            <div data-role="content">
+                <h2>Other page</h2>
+                <a href="#indexpage">Index page</a>
+            </div>
+
+            <footer data-role="footer">
+                <p><small>Copyright</small></p>
+            </footer>
 
         </div>
         <!--[if lt IE 7]>
