@@ -1,7 +1,15 @@
 define([
   "lib.use!lib.debug",
+  "util.Storage",
+  "util.Constants",
+  "util.ErrorHandler",
   "lib.knockoutjs"
-], function(debug, ko) {
+], function(
+  debug,
+  Storage,
+  Constants,
+  ErrorHandler,
+  ko) {
   "use strict";
 
   var Module = function() {
@@ -9,19 +17,33 @@ define([
 
     self.city = {
       geo: {
-        name: ko.observable(),
-        country: ko.observable(),
-        timezoneOffset: ko.observable()
+        name: ko.observable(""),
+        country: ko.observable(""),
+
+        coordinates: {
+          latitude: ko.observable(""),
+          longitude: ko.observable("")
+        },
+
+        timezoneOffset: ko.observable("")
       },
 
       weather: {
         temperature: {
-          average: ko.observable(),
-          maximum: ko.observable(),
-          minimum: ko.observable()
+          celcius: {
+            average: ko.observable(0),
+            maximum: ko.observable(0),
+            minimum: ko.observable(0)
+          },
+
+          fareheit: {
+            average: ko.observable(0),
+            maximum: ko.observable(0),
+            minimum: ko.observable(0)
+          }
         },
 
-        text: ko.observable()
+        text: ko.observable("")
       }
     };
 

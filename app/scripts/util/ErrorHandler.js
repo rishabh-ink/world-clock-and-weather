@@ -43,7 +43,7 @@ function(
 	};
 
 	return {
-		createModule: function() {
+		create: function() {
 			return new Module();
 		}
 	};

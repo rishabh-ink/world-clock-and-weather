@@ -8,36 +8,47 @@
 define([
 	"lib.use!lib.debug",
 	"util.Constants",
-	"lib.knockoutjs"
+	"util.ErrorHandler",
+	"jquery"
 ],
 function(
 	debug,
 	Constants,
-	ko
+	ErrorHandler,
+	jQuery
 ) {
 	debug.log("Loading util.GeoLocation");
 	var Module = function() {
 		var self = this;
 
+		self.position = null;
+
 		Module.prototype.get = function() {
-			var position = null;
+			debug.log("util.GeoLocation.get");
+
+			var deferred = new jQuery.Deferred();
 
 			if(Modernizr.geolocation) {
+				debug.log("util.GeoLocation", "Acquiring geolocation");
 				navigator.geolocation.getCurrentPosition(function(p) {
-				  position = p;
+				  self.position = p;
+				  debug.log("util.GeoLocation", "Acquired geolocation", self.position);
+
+				  deferred.resolve();
 				});
 			} else {
 				debug.warn("util.GeoLocation", "geolocation not available");
+				deferred.reject();
 			}
 
-			return position;
+			return deferred.promise();
 		};
 
 		return self;
 	};
 
 	return {
-		createModule: function() {
+		create: function() {
 			return new Module();
 		}
 	};
