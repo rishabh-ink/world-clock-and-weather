@@ -12,11 +12,11 @@ define({
 	},
 
 	api: {
-		pipe: {
-			baseUrl: "",
+		pipes: {
+			baseUrl: "http://pipes.yahoo.com/pipes/pipe.run",
 			methods: {
-				weather: "",
-				timezone: ""
+				weather: "42957ecd1167467fb94166188d1393b1",
+				timezone: "c1e4ebf5adb27a0a44cb0a5cebab206d"
 			}
 		}
 	},

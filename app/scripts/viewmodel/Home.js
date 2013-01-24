@@ -11,6 +11,7 @@ define([
   "util.ErrorHandler",
   "util.Storage",
   "util.GeoLocation",
+  "util.Network",
   "model.City",
   "lib.knockoutjs",
   "jquery"
@@ -21,67 +22,55 @@ function(
   ErrorHandler,
   Storage,
   GeoLocation,
+  Network,
   City,
   ko,
   jQuery
 ) {
   debug.log("Loading viewmodel.Home");
-  var Module = function() {
+  var HomeViewModelModule = function() {
     var self = this;
 
-    self.city = ko.observable();
+    self.city = City.create();
+    self.network = Network.create();
 
-    self.store = Storage.create();
-    self.location = GeoLocation.create();
-
-    Module.prototype.init = function() {
-      debug.log("viewmodel.Home.prototype.init");
-
-      // Get current geolocation
-      var g = GeoLocation.create();
-      debug.debug("viewmodel.Home.prototype.checkCacheFeasibility", "Created GeoLocation object...", g);
-
-      g.get().done(function() {
-        self.checkCacheFeasibility(g.position);
-      });
-
-      // If stale or not present or geo location is different
-
-      // Get weather
-
-      // Save to localstorage
-
-      // Update UI (mostly auto, by KO)
-
-      // End
-
-
-
+    HomeViewModelModule.prototype.init = function() {
+      debug.log("viewmodel.Home.init");
     };
 
-    Model.prototype.checkCacheFeasibility = function(position) {
-      debug.debug("viewmodel.Home.prototype.checkCacheFeasibility");
+    HomeViewModelModule.prototype.fetchData = function() {
+      debug.log("viewmodel.Home.fetchData");
 
-      // Query localstorage for a previous result
-      if(self.store.isAlreadyAvailable(Constants.keyrings.storage.HOME_CITY)) {
-        // If found, then load it back
-
-
-        // Check if it's fresh or stale
-
-        
-
-        // If fresh && same location, return
-        
+      if("" !== self.city.city.geo.name()) {
+        self.fetchTimezone();
       }
     };
+
+    HomeViewModelModule.prototype.fetchTimezone = function() {
+      debug.log("viewmodel.Home.fetchTimezone");
+
+      debug.log("viewmodel.Home.fetchTimezone", "Fetching timezone", self.city);
+      self.network.getTimezone(self.city.city.geo.name()).then(
+        // Success callback
+        function(data) {
+          debug.log("viewmodel.Home.fetchTimezone", "Setting up timezone", data);
+          self.city.applyTimezoneMappings(data);
+        }),
+
+        // Failure callback
+        function() {
+          debug.warn("viewmodel.Home.fetchTimezone", "Unable to setup timezone");
+        }
+    };
+
+    self.init();
 
     return self;
   };
 
   return {
     create: function() {
-      return new Module();
+      return new HomeViewModelModule();
     }
   };
 });

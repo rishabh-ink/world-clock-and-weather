@@ -17,6 +17,7 @@
       'util.Constants':         "util/Constants",
       'util.ErrorHandler':      "util/ErrorHandler",
       'util.GeoLocation':       "util/GeoLocation",
+      'util.Network':           "util/Network",
 
       'model.City':             "model/City",
 
@@ -43,7 +44,6 @@
   });
 
   require([
-    "app",
     "jquery",
     "lib.knockoutjs",
     "lib.use!lib.jquery-mobile",
@@ -51,7 +51,6 @@
     "viewmodel.Home",
     "model.City"
   ], function(
-    app,
     jQuery,
     ko,
     jQm,
@@ -59,21 +58,12 @@
     HomeViewModel,
     City
   ) {
-
-
-    var cityBangalore = City.create();
-    var cityParis = City.create();
     var homeViewModel = HomeViewModel.create();
 
-    homeViewModel.init();
+    var viewModels = {
+      homeViewModel: homeViewModel
+    };
 
-    cityBangalore.city.geo.name("BAngalore");
-    debug.log(cityBangalore.city.geo.name());
-
-    cityBangalore.applyMappings({});
-
-    cityBangalore.city.geo.name("Bangalore");
-
-    debug.log(ko.toJSON(cityBangalore), cityParis);
+    ko.applyBindings(viewModels);
   });
 })();

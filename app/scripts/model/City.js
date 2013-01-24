@@ -12,7 +12,7 @@ define([
   ko) {
   "use strict";
 
-  var Module = function() {
+  var City = function() {
     var self = this;
 
     self.city = {
@@ -25,7 +25,7 @@ define([
           longitude: ko.observable("")
         },
 
-        timezoneOffset: ko.observable("")
+        timezoneOffset: ko.observable(0)
       },
 
       weather: {
@@ -47,14 +47,21 @@ define([
       }
     };
 
-    Module.prototype.applyMappings = function(value) {
-      debug.log("model.city.applyMappings", value);
+    City.prototype.applyTimezoneMappings = function(data) {
+      debug.log("model.city.applyTimezoneMappings", data);
+
+      if(data.value.items[0].timezone.utcOffset) {
+        debug.log("model.city.applyTimezoneMappings", "Setting timezone offset", data.value.items[0].timezone.utcOffset);
+        self.city.geo.timezoneOffset(data.value.items[0].timezone.utcOffset);
+      } else {
+        debug.warn("model.city.applyTimezoneMappings", "Unable to set timezone offset. Assuming UTC.", data.value.items[0].timezone.utcOffset);
+      }
     };
   };
 
   return {
     create: function() {
-      return new Module();
+      return new City();
     }
   };
 });
