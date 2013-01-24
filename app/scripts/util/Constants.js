@@ -22,6 +22,10 @@ define({
 	},
 
 	keyrings: {
+		storage: {
+			HOME_CITY: "WCW_HOME_CITY",
+			FAV_CITIES: "WCW_FAV_CITIES"
+		}
 	},
 
 	refreshTimeouts: {
