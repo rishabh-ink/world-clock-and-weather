@@ -29,32 +29,43 @@ define([
       },
 
       weather: {
-        temperature: {
-          celcius: {
-            average: ko.observable(0),
-            maximum: ko.observable(0),
-            minimum: ko.observable(0)
-          },
-
-          fareheit: {
-            average: ko.observable(0),
-            maximum: ko.observable(0),
-            minimum: ko.observable(0)
+        current_condition: {
+          temp_C: ko.observable(),
+          weatherDesc: {
+            value: ko.observable("")
           }
-        },
-
-        text: ko.observable("")
+        }
       }
     };
 
     City.prototype.applyTimezoneMappings = function(data) {
       debug.log("model.city.applyTimezoneMappings", data);
 
+      var timezoneInfo = null;
+
       if(data.value.items[0].time_zone.utcOffset) {
-        debug.log("model.city.applyTimezoneMappings", "Setting timezone offset", data.value.items[0].time_zone.utcOffset);
-        self.city.geo.timezoneOffset(data.value.items[0].time_zone.utcOffset);
+        timezoneInfo = data.value.items[0];
+
+        debug.log("model.city.applyTimezoneMappings", "Setting timezone info", timezoneInfo);
+        self.city.geo.timezoneOffset(timezoneInfo.time_zone.utcOffset);
       } else {
-        debug.warn("model.city.applyTimezoneMappings", "Unable to set timezone offset. Assuming UTC.", data.value.items[0].time_zone.utcOffset);
+        debug.warn("model.city.applyTimezoneMappings", "Unable to set timezone offset. Assuming UTC.", timezoneInfo.time_zone.utcOffset);
+      }
+    };
+
+    City.prototype.applyWeatherMappings = function(data) {
+      debug.log("model.city.applyWeatherMappings", data);
+
+      var weatherInfo = null;
+
+      if(data.value.items[0]) {
+        weatherInfo = data.value.items[0];
+
+        debug.log("model.city.applyWeatherMappings", "Setting weather info", weatherInfo);
+        self.city.weather.current_condition.temp_C(weatherInfo.current_condition.temp_C);
+        self.city.weather.current_condition.weatherDesc.value(weatherInfo.current_condition.weatherDesc.value);
+      } else {
+        debug.warn("model.city.applyWeatherMappings", "Unable to set weather info.", weatherInfo);
       }
     };
   };
