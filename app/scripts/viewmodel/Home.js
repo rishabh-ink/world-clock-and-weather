@@ -43,6 +43,7 @@ function(
 
       if("" !== self.city.city.geo.name()) {
         self.fetchTimezone();
+        self.fetchWeather();
       }
     };
 
@@ -55,12 +56,31 @@ function(
         function(data) {
           debug.log("viewmodel.Home.fetchTimezone", "Setting up timezone", data);
           self.city.applyTimezoneMappings(data);
-        }),
+        },
 
         // Failure callback
         function() {
           debug.warn("viewmodel.Home.fetchTimezone", "Unable to setup timezone");
         }
+      );
+    };
+
+    HomeViewModelModule.prototype.fetchWeather = function() {
+      debug.log("viewmodel.Home.fetchWeather");
+
+      debug.log("viewmodel.Home.fetchWeather", "Fetching weather", self.city);
+      self.network.getWeather(self.city.city.geo.name()).then(
+        // Success callback
+        function(data) {
+          debug.log("viewmodel.Home.fetchWeather", "Setting up weather", data);
+          self.city.applyWeatherMappings(data);
+        },
+
+        // Failure callback
+        function() {
+          debug.warn("viewmodel.Home.fetchWeather", "Unable to setup weather");
+        }
+      );
     };
 
     self.init();
