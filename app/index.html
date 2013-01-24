@@ -19,7 +19,7 @@
                 <h1>World Clock and Weather</h1>
             </header>
 
-            <div data-role="content">
+            <section data-role="content">
                 
                 <form action="" method="post">
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -30,7 +30,13 @@
                         <button data-bind="click: homeViewModel.fetchData">Go!</button>
                     </div>
                 </form>
-            </div>
+
+                <div>
+                    <h3 data-bind="text: homeViewModel.city.city.geo.name"></h3>
+                    <p data-bind="text: homeViewModel.city.city.weather.current_condition.weatherDesc.value"></p>
+                    <p data-bind="text: homeViewModel.city.city.weather.current_condition.temp_C"></p>
+                </div>
+            </section>
 
             <footer data-role="footer">
             </footer>
