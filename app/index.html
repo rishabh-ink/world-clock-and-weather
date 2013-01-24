@@ -24,7 +24,7 @@
                 <form action="" method="post">
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="location">Location:</label>
-                        <input type="text" name="location" id="location" value="" placeholder="Where are you?" data-bind="value: homeViewModel.city.city.geo.name" />
+                        <input type="text" name="location" id="location" value="" placeholder="Where are you?" data-bind="value: homeViewModel.city.info.name" />
                     </div>
                     <div data-role="fieldcontain">
                         <button data-bind="click: homeViewModel.fetchData">Go!</button>
@@ -32,9 +32,9 @@
                 </form>
 
                 <div>
-                    <h3 data-bind="text: homeViewModel.city.city.geo.name"></h3>
-                    <p data-bind="text: homeViewModel.city.city.weather.current_condition.weatherDesc.value"></p>
-                    <p data-bind="text: homeViewModel.city.city.weather.current_condition.temp_C"></p>
+                    <h3 data-bind="text: homeViewModel.city.info.name"></h3>
+                    <p data-bind="text: homeViewModel.city.weather.current_condition.weatherDesc.value"></p>
+                    <p data-bind="text: homeViewModel.city.weather.current_condition.temp_C"></p>
                 </div>
             </section>
 

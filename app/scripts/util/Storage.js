@@ -8,7 +8,7 @@
 define([
 	"lib.use!lib.debug",
 	"util.Constants",
-	"lib.knockoutjs"
+	"knockout"
 ],
 function(
 	debug,

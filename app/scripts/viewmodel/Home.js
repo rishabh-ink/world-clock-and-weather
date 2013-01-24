@@ -13,7 +13,7 @@ define([
   "util.GeoLocation",
   "util.Network",
   "model.City",
-  "lib.knockoutjs",
+  "knockout",
   "jquery"
 ],
 function(
@@ -41,7 +41,7 @@ function(
     HomeViewModelModule.prototype.fetchData = function() {
       debug.log("viewmodel.Home.fetchData");
 
-      if("" !== self.city.city.geo.name()) {
+      if("" !== self.city.info.name()) {
         self.fetchTimezone();
         self.fetchWeather();
       }
@@ -51,7 +51,7 @@ function(
       debug.log("viewmodel.Home.fetchTimezone");
 
       debug.log("viewmodel.Home.fetchTimezone", "Fetching timezone", self.city);
-      self.network.getTimezone(self.city.city.geo.name()).then(
+      self.network.getTimezone(self.city.info.name()).then(
         // Success callback
         function(data) {
           debug.log("viewmodel.Home.fetchTimezone", "Setting up timezone", data);
@@ -69,7 +69,7 @@ function(
       debug.log("viewmodel.Home.fetchWeather");
 
       debug.log("viewmodel.Home.fetchWeather", "Fetching weather", self.city);
-      self.network.getWeather(self.city.city.geo.name()).then(
+      self.network.getWeather(self.city.info.name()).then(
         // Success callback
         function(data) {
           debug.log("viewmodel.Home.fetchWeather", "Setting up weather", data);
