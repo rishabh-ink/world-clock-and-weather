@@ -14,32 +14,28 @@
         <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
-        <div id="indexpage" data-role="page">
+        <div id="indexpage" data-role="page" data-theme="a">
             <header data-role="header" data-position="fixed">
-                <h1>World Clock and Weather</h1>
+                <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
+                <h1>Weather</h1>
+                <a href="#" data-icon="refresh" data-iconpos="notext" data-rel="dialog">Refresh</a>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="home">Home</a></li>
+                        <li><a href="#" data-icon="star">Favourites</a></li>
+                        <li><a href="#" data-icon="grid">Recent</a></li>
+                    </ul>
+                </nav>
             </header>
 
             <section data-role="content">
-                
-                <form action="" method="post">
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="location">Location:</label>
-                        <input type="text" name="location" id="location" value="" placeholder="Where are you?" data-bind="value: homeViewModel.city.info.name" />
-                    </div>
-                    <div data-role="fieldcontain">
-                        <button data-bind="click: homeViewModel.fetchData">Go!</button>
-                    </div>
-                </form>
-
-                <div>
-                    <h3 data-bind="text: homeViewModel.city.info.name"></h3>
-                    <p data-bind="text: homeViewModel.city.weather.current_condition.weatherDesc.value"></p>
-                    <p data-bind="text: homeViewModel.city.weather.current_condition.temp_C"></p>
+                <div class="ui-grid-b ui-responsive">
+                    <div class="ui-block-a">Block A</div>
+                    <div class="ui-block-b">Block B</div>
+                    <div class="ui-block-c">Block C</div>
                 </div>
-            </section>
 
-            <footer data-role="footer">
-            </footer>
+            </section>
 
         </div>
 
