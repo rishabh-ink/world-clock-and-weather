@@ -50,11 +50,11 @@ define([
     City.prototype.applyTimezoneMappings = function(data) {
       debug.log("model.city.applyTimezoneMappings", data);
 
-      if(data.value.items[0].timezone.utcOffset) {
-        debug.log("model.city.applyTimezoneMappings", "Setting timezone offset", data.value.items[0].timezone.utcOffset);
-        self.city.geo.timezoneOffset(data.value.items[0].timezone.utcOffset);
+      if(data.value.items[0].time_zone.utcOffset) {
+        debug.log("model.city.applyTimezoneMappings", "Setting timezone offset", data.value.items[0].time_zone.utcOffset);
+        self.city.geo.timezoneOffset(data.value.items[0].time_zone.utcOffset);
       } else {
-        debug.warn("model.city.applyTimezoneMappings", "Unable to set timezone offset. Assuming UTC.", data.value.items[0].timezone.utcOffset);
+        debug.warn("model.city.applyTimezoneMappings", "Unable to set timezone offset. Assuming UTC.", data.value.items[0].time_zone.utcOffset);
       }
     };
   };
