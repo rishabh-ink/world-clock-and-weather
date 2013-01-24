@@ -12,7 +12,8 @@ define([
   "util.Storage",
   "util.GeoLocation",
   "model.City",
-  "lib.knockoutjs"
+  "lib.knockoutjs",
+  "jquery"
 ],
 function(
   debug,
@@ -21,23 +22,58 @@ function(
   Storage,
   GeoLocation,
   City,
-  ko
+  ko,
+  jQuery
 ) {
   debug.log("Loading viewmodel.Home");
   var Module = function() {
     var self = this;
 
-    self.cities = ko.observableArray();
+    self.city = ko.observable();
+
+    self.store = Storage.create();
+    self.location = GeoLocation.create();
 
     Module.prototype.init = function() {
       debug.log("viewmodel.Home.prototype.init");
 
+      // Get current geolocation
       var g = GeoLocation.create();
-      debug.debug("viewmodel.Home.prototype.init", "Created GeoLocation object...", g);
+      debug.debug("viewmodel.Home.prototype.checkCacheFeasibility", "Created GeoLocation object...", g);
 
       g.get().done(function() {
-        debug.log("viewmodel.Home.prototype.init", "position is", g.position);
+        self.checkCacheFeasibility(g.position);
       });
+
+      // If stale or not present or geo location is different
+
+      // Get weather
+
+      // Save to localstorage
+
+      // Update UI (mostly auto, by KO)
+
+      // End
+
+
+
+    };
+
+    Model.prototype.checkCacheFeasibility = function(position) {
+      debug.debug("viewmodel.Home.prototype.checkCacheFeasibility");
+
+      // Query localstorage for a previous result
+      if(self.store.isAlreadyAvailable(Constants.keyrings.storage.HOME_CITY)) {
+        // If found, then load it back
+
+
+        // Check if it's fresh or stale
+
+        
+
+        // If fresh && same location, return
+        
+      }
     };
 
     return self;
