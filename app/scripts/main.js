@@ -9,7 +9,7 @@
       'lib.use':                "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
       'jquery':                 "../components/jquery/jquery", // jquery.com
       'knockout':               "../components/knockoutjs/index", // knockoutjs.com
-      'lib.jquery-mobile':      "../components/jquery-mobile/jquery.mobile-1.2.0", // jquerymobile.com
+      'lib.jquery-mobile':      "../components/jquery-mobile/jquery.mobile", // jquerymobile.com
       'lib.debug':              "../components/javascript-debug/ba-debug", // benalman.com/code/projects/javascript-debug
 
       'util.Storage':           "util/Storage",
