@@ -18,44 +18,116 @@
             <header data-role="header" data-position="fixed">
                 <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
                 <h1>Weather</h1>
+                <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
                 <nav data-role="navbar">
                     <ul>
-                        <li><a href="#" data-icon="home">Home</a></li>
-                        <li><a href="#" data-icon="star">Favourites</a></li>
-                        <li><a href="#" data-icon="grid">Recent</a></li>
+                        <li><a href="#" data-icon="home" class="ui-btn-active">Home</a></li>
+                        <li><a href="#" data-icon="star">My places</a></li>
                     </ul>
                 </nav>
             </header>
 
-            <section data-role="content">
+            <section data-role="content" class="weather-today-panel ui-responsive-mobile-portrait">
+                <div class="current-place-headers">
+                    <div class="ui-grid-solo">
+                        <div class="current-city">
+                            Bangalore
+                        </div>
+                    </div>
+                    <div class="ui-grid-solo ui-responsive-mobile-portrait">
+                        <div class="current-country">Karantaka, India</div>
+                    </div>
+                </div>
+
                 <div class="ui-grid-b ui-responsive-mobile-portrait">
-                    <div class="ui-block-a">
-                        <div class="row-fluid">
-                            <div class="span2"><i class="camera-retro"></i></div>
-                            <div class="span10"><span>06:47</span></div>
-                        </div>
-                        <div class="weather-info">
-                            <img src="http://placepuppy.it/32" />
-                            <span>0mm</span>
-                        </div>
-                        <div class="weather-info">
-                            <img src="http://placepuppy.it/32" />
-                            <span>1015hPa</span>
+                    <div class="ui-block-a panel-clock">
+                        <div class="current-date">
+                            Sat, Jan 26
                         </div>
 
+                        <div class="current-time">
+                            12:52pm
+                        </div>
+
+                        <div class="last-refresh">
+
+                        </div>
                     </div>
-                    <div class="ui-block-b">Block B</div>
-                    <div class="ui-block-c">
-                        <p>Test3</p>
-                        <p>Test3</p>
-                        <p>Test3</p>
+                    <div class="ui-block-b">
+                        <div class="current-condition-icon">
+                            <img width="100px" src="images/weather-icons/weezle_sun_and_rain.png" alt="Sunny" />
+                        </div>
                     </div>
+                    <div class="ui-block-c panel-weather">
+                        <div class="current-temperature-average">
+                            14&deg;C
+                        </div>
+                        <div class="current-temperature-high-low">
+                            29&deg;C | 14&deg;C
+                        </div>
+                        <div class="current-condition">
+                            Haze
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast">
+                    <!--  (div.span2>(div.day{S}+(div.icon>img[src="images/weather-icons/weezle_sun.png"][width="16px"])+(div.temperature>div.average{24C}+div.highlow{})))*6 -->
+
+                    <!-- div.ui-grid-d>((div.ui-block->(div.day{S}+(div.icon>img[src="images/weather-icons/weezle_sun.png"][width="16px"])+(div.temperature>div.average{24C}+div.highlow{})))*5) -->
+                    <div class="ui-grid-d">
+                        <div class="ui-block-a">
+                            <div class="day">S</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="temperature">
+                                <div class="average">24&deg;C</div>
+                                <div class="highlow">18C | 25C</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div class="day">S</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="temperature">
+                                <div class="average">24C</div>
+                                <div class="highlow">18C | 25C</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-c">
+                            <div class="day">S</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="temperature">
+                                <div class="average">24C</div>
+                                <div class="highlow">18C | 25C</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-d">
+                            <div class="day">S</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="temperature">
+                                <div class="average">24C</div>
+                                <div class="highlow">18C | 25C</div>
+                            </div>
+                        </div>
+                        <div class="ui-block-e">
+                            <div class="day">S</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="temperature">
+                                <div class="average">24C</div>
+                                <div class="highlow">18C | 25C</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </section>
 
-        </div>
+            <footer data-role="footer" data-position="fixed">
+                <p>Last refresh 6 min ago</p>
+            </footer>
 
+        </div>
+5
         <div id="otherpage" data-role="page">
             <header data-role="header" data-position="fixed">
                 <h1>Other page</h1>
