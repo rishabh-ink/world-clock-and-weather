@@ -21,13 +21,13 @@
                 <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
                 <nav data-role="navbar">
                     <ul>
-                        <li><a href="#" data-icon="home" class="ui-btn-active">Home</a></li>
-                        <li><a href="#" data-icon="star">My places</a></li>
+                        <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                        <li><a href="#mycitiespage" data-icon="star">My places</a></li>
                     </ul>
                 </nav>
             </header>
 
-            <section data-role="content" class="weather-today-panel ui-responsive-mobile-portrait">
+            <section data-role="content" class="weather-today-panel">
                 <div class="current-place-headers">
                     <div class="ui-grid-solo">
                         <div class="current-city">
@@ -127,20 +127,46 @@
             </footer>
 
         </div>
-5
-        <div id="otherpage" data-role="page">
+
+        <div id="mycitiespage" data-role="page" data-theme="a">
             <header data-role="header" data-position="fixed">
-                <h1>Other page</h1>
-                <a href="#" data-role="button" data-icon="gear" class="ui-btn-right">Settings</a>
+                <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
+                <h1>Weather</h1>
+                <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#indexpage" data-icon="home">Home</a></li>
+                        <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">My places</a></li>
+                    </ul>
+                </nav>
+                <form action="#">
+                    <div data-role="fieldcontain" class="ui-hide-label input-add-city">
+                        <label for="search-basic">Search city...</label>
+                        <input type="search" placeholder="Search city..." name="search" id="search-basic" value="" />
+                    </div>
+
+                    <div class="button-add-city">
+                        <input type="submit" data-icon="plus" data-iconpos="notext" />
+                    </div>
+                </form>
             </header>
 
             <div data-role="content">
-                <h2>Other page</h2>
-                <a href="#indexpage">Index page</a>
+                <div data-role="fieldcontain">
+                    <ul data-role="listview">
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_sun.png" />
+                                <h3>New York</h3>
+                                <p>Sunny</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <footer data-role="footer">
-                <p><small>Copyright</small></p>
+
             </footer>
 
         </div>
