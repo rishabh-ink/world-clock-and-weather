@@ -1,4 +1,4 @@
-.weather-today-panel {
+.weather-today-page {
   .current-city {
     text-align: center;
   }
@@ -11,9 +11,18 @@
     margin: 0 auto 2em auto;
   }
 
+  .current-temperature-average {
+    font-size: 1.8em;
+  }
+
+  .current-temperature-high-low {
+    .low {
+      color: #AAAAAA;
+    }
+  }
 
   .forecast {
-    font-size: 0.6em;
+    font-size: 0.8em;
     text-align: center;
     margin: 2em auto;
   }
@@ -24,5 +33,11 @@
 
   .current-country {
     text-align: center;
+  }
+}
+
+.weather-forecast-page {
+  .city-temperature {
+    font-size: 1.2em;
   }
 }

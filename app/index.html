@@ -8,7 +8,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
 
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.min.js"></script>
@@ -19,7 +22,7 @@
                 <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
                 <h1>Weather</h1>
                 <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
-                <nav data-role="navbar">
+                <nav data-role="navbar" data-iconpos="left">
                     <ul>
                         <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
                         <li><a href="#mycitiespage" data-icon="star">My places</a></li>
@@ -27,7 +30,7 @@
                 </nav>
             </header>
 
-            <section data-role="content" class="weather-today-panel">
+            <section data-role="content" class="weather-today-page">
                 <div class="current-place-headers">
                     <div class="ui-grid-solo">
                         <div class="current-city">
@@ -63,7 +66,7 @@
                             14&deg;C
                         </div>
                         <div class="current-temperature-high-low">
-                            29&deg;C | 14&deg;C
+                            <span class="low">14&deg;C</span> <span class="high">26&deg;C</span>
                         </div>
                         <div class="current-condition">
                             Haze
@@ -85,7 +88,7 @@
                             </div>
                         </div>
                         <div class="ui-block-b">
-                            <div class="day">S</div>
+                            <div class="day">M</div>
                             <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
                             <div class="temperature">
                                 <div class="average">24C</div>
@@ -93,7 +96,7 @@
                             </div>
                         </div>
                         <div class="ui-block-c">
-                            <div class="day">S</div>
+                            <div class="day">T</div>
                             <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
                             <div class="temperature">
                                 <div class="average">24C</div>
@@ -101,7 +104,7 @@
                             </div>
                         </div>
                         <div class="ui-block-d">
-                            <div class="day">S</div>
+                            <div class="day">W</div>
                             <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
                             <div class="temperature">
                                 <div class="average">24C</div>
@@ -109,7 +112,7 @@
                             </div>
                         </div>
                         <div class="ui-block-e">
-                            <div class="day">S</div>
+                            <div class="day">T</div>
                             <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
                             <div class="temperature">
                                 <div class="average">24C</div>
@@ -122,10 +125,6 @@
 
             </section>
 
-            <footer data-role="footer" data-position="fixed">
-                <p>Last refresh 6 min ago</p>
-            </footer>
-
         </div>
 
         <div id="mycitiespage" data-role="page" data-theme="a">
@@ -133,7 +132,7 @@
                 <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
                 <h1>Weather</h1>
                 <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
-                <nav data-role="navbar">
+                <nav data-role="navbar" data-iconpos="left">
                     <ul>
                         <li><a href="#indexpage" data-icon="home">Home</a></li>
                         <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">My places</a></li>
@@ -151,7 +150,7 @@
                 </form>
             </header>
 
-            <div data-role="content">
+            <section data-role="content" class="weather-forecast-page">
                 <div data-role="fieldcontain">
                     <ul data-role="listview">
                         <li>
@@ -159,11 +158,28 @@
                                 <img src="images/weather-icons/weezle_sun.png" />
                                 <h3>New York</h3>
                                 <p>Sunny</p>
+                                <p class="ui-li-count city-temperature">24&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_overcast.png" />
+                                <h3>Hubli</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">32&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_snow.png" />
+                                <h3>Ghaziabad</h3>
+                                <p>Snow</p>
+                                <p class="ui-li-count city-temperature">54&deg;C</p>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
             <footer data-role="footer">
 
