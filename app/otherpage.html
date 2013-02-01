@@ -8,26 +8,217 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
 
         <link rel="stylesheet" href="styles/main.css">
         <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
-
-        <div id="otherpage" data-role="page">
+        <div id="indexpage" data-role="page" data-theme="a">
             <header data-role="header" data-position="fixed">
-                <h1>Other page</h1>
-                <a href="#" data-role="button" data-icon="gear" class="ui-btn-right">Settings</a>
+                <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
+                <h1>Weather</h1>
+                <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
+                <nav data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                        <li><a href="#mycitiespage" data-icon="star">My places</a></li>
+                    </ul>
+                </nav>
             </header>
 
-            <div data-role="content">
-                <h2>Other page</h2>
-                <a href="index.html">Index page</a>
-            </div>
+            <section data-role="content" class="weather-today-page">
+                <div class="current-place-headers">
+                    <div class="ui-grid-solo">
+                        <div class="current-city">
+                            Bangalore
+                        </div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <div class="current-country">Karantaka, India</div>
+                    </div>
+                </div>
+
+                <div class="ui-grid-b">
+                    <div class="ui-block-a panel-clock">
+
+
+                        <div class="current-time">
+                            12:52pm
+                        </div>
+
+                        <div class="current-date">
+                            Sat, Jan 26
+                        </div>
+
+                        <div class="last-refresh">
+
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="current-condition-icon">
+                            <img width="100px" src="images/weather-icons/weezle_sun_and_rain.png" alt="Sunny" />
+                        </div>
+                    </div>
+                    <div class="ui-block-c panel-weather">
+                        <div class="current-temperature-average">
+                            14&deg;C
+                        </div>
+                        <div class="current-temperature-high-low">
+                            <span class="low">14&deg;C</span> <span class="high">26&deg;C</span>
+                        </div>
+                        <div class="current-condition">
+                            Haze
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast"></div>
+
+                <div class="forecast">
+                    <!--  (div.span2>(div.day{S}+(div.icon>img[src="images/weather-icons/weezle_sun.png"][width="16px"])+(div.temperature>div.average{24C}+div.highlow{})))*6 -->
+
+                    <!-- div.ui-grid-d>((div.ui-block->(div.day{S}+(div.icon>img[src="images/weather-icons/weezle_sun.png"][width="16px"])+(div.temperature>div.average{24C}+div.highlow{})))*5) -->
+                    <div class="ui-grid-d">
+                        <div class="ui-block-a">
+                            <div class="day">Sun</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun.png" alt="" width="16px"></div>
+                            <div class="current-temperature-average">21&deg;C</div>
+                            <div class="current-temperature-high-low">
+                                <span class="low">14&deg;C</span> <span class="high">25&deg;C</span>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div class="day">Mon</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_cloud.png" alt="" width="16px"></div>
+                            <div class="current-temperature-average">22&deg;C</div>
+                            <div class="current-temperature-high-low">
+                                <span class="low">15&deg;C</span> <span>26&deg;C</span>
+                            </div>
+                        </div>
+                        <div class="ui-block-c">
+                            <div class="day">Tue</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_medium_ice.png" alt="" width="16px"></div>
+                            <div class="current-temperature-average">23&deg;C</div>
+                            <div class="current-temperature-high-low">
+                                <span class="low">19&deg;C</span> <span>27&deg;C</span>
+                            </div>
+                        </div>
+                        <div class="ui-block-d">
+                            <div class="day">Wed</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_sun_and_rain.png" alt="" width="16px"></div>
+                            <div class="current-temperature-average">24&deg;C</div>
+                            <div class="current-temperature-high-low">
+                                <span class="low">12&deg;C</span> <span>23&deg;C</span>
+                            </div>
+                        </div>
+                        <div class="ui-block-e">
+                            <div class="day">Thu</div>
+                            <div class="icon"><img src="images/weather-icons/weezle_rain.png" alt="" width="16px"></div>
+                            <div class="current-temperature-average">25&deg;C</div>
+                            <div class="current-temperature-high-low">
+                                <span class="low">16&deg;C</span> <span>22&deg;C</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <div id="mycitiespage" data-role="page" data-theme="a">
+            <header data-role="header" data-position="fixed">
+                <a href="#" data-icon="home" data-iconpos="notext" data-rel="dialog">Home</a>
+                <h1>Weather</h1>
+                <a href="#" data-icon="refresh"  data-rel="dialog">Refresh</a>
+                <nav data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li><a href="#indexpage" data-icon="home">Home</a></li>
+                        <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">My places</a></li>
+                    </ul>
+                </nav>
+                <form action="#">
+                    <div data-role="fieldcontain" class="ui-hide-label input-add-city">
+                        <label for="search-basic">Search city...</label>
+                        <input type="search" placeholder="Search city..." name="search" id="search-basic" value="" />
+                    </div>
+
+                    <div class="button-add-city">
+                        <input type="submit" data-icon="plus" data-iconpos="notext" />
+                    </div>
+                </form>
+            </header>
+
+            <section data-role="content" class="weather-forecast-page">
+                <div data-role="fieldcontain">
+                    <ul data-role="listview">
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_sun.png" />
+                                <h3>Delhi</h3>
+                                <p>Sunny</p>
+                                <p class="ui-li-count city-temperature">24&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_overcast.png" />
+                                <h3>Washington</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">32&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_snow.png" />
+                                <h3>Warsaw</h3>
+                                <p>Snow</p>
+                                <p class="ui-li-count city-temperature">24&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_rain.png" />
+                                <h3>Paris</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">21&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_sun_and_snow.png" />
+                                <h3>Kolkata</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">23&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_sun.png" />
+                                <h3>Chennai</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">36&deg;C</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/weather-icons/weezle_fog.png" />
+                                <h3>Berlin</h3>
+                                <p>Overcast</p>
+                                <p class="ui-li-count city-temperature">17&deg;C</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
             <footer data-role="footer">
-                <p><small>Copyright</small></p>
+
             </footer>
 
         </div>
