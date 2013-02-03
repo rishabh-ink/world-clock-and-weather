@@ -28,12 +28,21 @@
       self.city = ko.observable("");
       self.country = ko.observable("");
       self.region = ko.observable("");
+
+      self.geo = {
+        lat: ko.observable(""),
+        long: ko.observable("")
+      };
     };
 
     Module.prototype.applyMappings = function(data) {
       debug.log("model.weather.Location", "applyMappings");
       var mapper = Mapper.create();
       mapper.map(self, data);
+    };
+
+    Module.prototype.getGeoLocationString = function() {
+      return self.geo.lat() + "," + self.geo.long();
     };
 
     self.init();
