@@ -36,22 +36,50 @@ function(
 
       self.city = City.create();
       self.network = Network.create();
+
+      self.fetchLocation();
+    };
+
+    Module.prototype.fetchLocation = function() {
+      debug.log("viewmodel.Home", "fetchLocation");
+
+      var geo = GeoLocation.create();
+
+      geo.get().then(
+        // Success callback
+        function(data) {
+          debug.log("viewmodel.Home", "fetchLocation", "Got location", { data: data });
+
+          if("undefined" !== typeof data.coords) {
+            self.city.location.geo.lat(data.coords.lat);
+            self.city.location.geo.long(data.coords.long);
+          }
+
+          self.fetchData();
+        },
+
+        // Failure callback
+        function() {
+          // TODO Try to get a manual user location input
+        }
+      );
     };
 
     Module.prototype.fetchData = function() {
       debug.log("viewmodel.Home", "fetchData");
 
-      if("" !== self.city.info.name()) {
-        self.fetchTimezone();
-        self.fetchWeather();
+      if("" !== self.city.location.geo.lat()) {
+        self.fetchWeather(self.city.location.geo.getGeoLocationString());
+      } else {
+        self.fetchWeather(self.city.location.city());
       }
     };
 
-    Module.prototype.fetchWeather = function() {
+    Module.prototype.fetchWeather = function(location) {
       debug.log("viewmodel.Home", "fetchWeather");
 
       debug.log("viewmodel.Home", "fetchWeather", "Fetching weather", self.city);
-      self.network.getWeather(self.city.info.name()).then(
+      self.network.getWeather(location).then(
         // Success callback
         function(data) {
           debug.log("viewmodel.Home", "fetchWeather", "Setting up weather", data);
