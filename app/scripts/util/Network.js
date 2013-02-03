@@ -44,22 +44,7 @@ function(
 			}).promise();
 		};
 
-		Network.prototype.getTimezone = function(location) {
-			debug.log("util.Network.getTimezone");
-
-			debug.log("util.Network.getTimezone", "Making AJAX request", location);
-			return jQuery.ajax({
-				url: Constants.api.pipes.baseUrl,
-				data: {
-					'_id': Constants.api.pipes.methods.timezone,
-					'_render': "json",
-					'location': location
-				}
-			}).promise();
-		};
-
 		self.init();
-
 		return self;
 	};
 
