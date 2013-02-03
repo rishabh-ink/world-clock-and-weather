@@ -3,24 +3,31 @@
 
   require.config({
     paths: {
-      'hm':                     "vendor/hm",
-      'esprima':                "vendor/esprima",
-      'domready':               "../components/requirejs-domready/domReady", // requirejs.com/docs/download.html#domReady
-      'lib.use':                "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
-      'jquery':                 "../components/jquery/jquery", // jquery.com
-      'knockout':               "../components/knockoutjs/index", // knockoutjs.com
-      'lib.jquery-mobile':      "../components/jquery-mobile/jquery.mobile", // jquerymobile.com
-      'lib.debug':              "../components/javascript-debug/ba-debug", // benalman.com/code/projects/javascript-debug
+    'hm':                        "vendor/hm",
+    'esprima':                   "vendor/esprima",
+    'domready':                  "../components/requirejs-domready/domReady", // requirejs.com/docs/download.html#domReady
+    'lib.use':                   "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
+    'jquery':                    "../components/jquery/jquery", // jquery.com
+    'knockout':                  "../components/knockoutjs/index", // knockoutjs.com
+    'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile", // jquerymobile.com
+    'lib.debug':                 "../components/javascript-debug/ba-debug", // benalman.com/code/projects/javascript-debug
 
-      'util.Storage':           "util/Storage",
-      'util.Constants':         "util/Constants",
-      'util.ErrorHandler':      "util/ErrorHandler",
-      'util.GeoLocation':       "util/GeoLocation",
-      'util.Network':           "util/Network",
+    'util.Storage':              "util/Storage",
+    'util.Constants':            "util/Constants",
+    'util.ErrorHandler':         "util/ErrorHandler",
+    'util.GeoLocation':          "util/GeoLocation",
+    'util.Network':              "util/Network",
+    'util.Mapper':               "util/Mapper",
 
-      'model.City':             "model/City",
+    'model.City':                "model/City",
+    'model.weather.Location':    "model/weather/Location",
+    'model.weather.Wind':        "model/weather/Wind",
+    'model.weather.Atmosphere':  "model/weather/Atmosphere",
+    'model.weather.Astronomy':   "model/weather/Astronomy",
+    'model.weather.Condition':   "model/weather/Condition",
+    'model.weather.Forecast':    "model/weather/Forecast",
 
-      'viewmodel.Home':         "viewmodel/Home"
+    'viewmodel.Home':            "viewmodel/Home"
     },
 
     shim: {
@@ -63,12 +70,16 @@
     HomeViewModel,
     City
   ) {
-    var homeViewModel = HomeViewModel.create();
+    debug.log("main", "Starting application...");
 
     var viewModels = {
-      homeViewModel: homeViewModel
+      home: HomeViewModel.create()
     };
 
-    ko.applyBindings(viewModels);
+    debug.log("main", "Setting up jQuery Mobile page event handlers...");
+
+    jQuery(document).on("pageshow", function(event) {
+      debug.log("main", "pageshow", { 'event': event, 'pageName': ($(event.target).data("page-name")) });
+    });
   });
 })();
