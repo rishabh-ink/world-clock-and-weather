@@ -15,8 +15,7 @@ define({
 		pipes: {
 			baseUrl: "http://pipes.yahoo.com/pipes/pipe.run",
 			methods: {
-				weather: "42957ecd1167467fb94166188d1393b1",
-				timezone: "c1e4ebf5adb27a0a44cb0a5cebab206d"
+				weather: "687279a3ea30ea78c978b1bf6e235055"
 			}
 		}
 	},
