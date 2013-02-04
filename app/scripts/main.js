@@ -80,6 +80,7 @@
 
     jQuery(document).on("pageshow", function(event) {
       debug.log("main", "pageshow", { 'event': event, 'pageName': ($(event.target).data("page-name")) });
+      ko.applyBindings(viewModels.home, jQuery("[data-page-name='home']"));
     });
   });
 })();
