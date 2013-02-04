@@ -36,13 +36,13 @@ function(
 			if(data) {
 				debug.group("util.Mapper", "map", "Mapping...");
 				for(property in data) {
-					debug.log("Mapping", {
+					console.log("Mapping", {
 						property: property,
-						value: data.property
+						value: data[property]
 					});
 
 					if("undefined" !== typeof (module[property])) {
-						module[property]((data.property && null !== data.property) ? data.property : "n/a");
+						module[property]((data[property] && null !== data[property]) ? data[property] : "n/a");
 					}
 				}
 				debug.groupEnd();
