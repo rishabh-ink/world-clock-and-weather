@@ -18,6 +18,7 @@
   Constants,
   ErrorHandler,
   Mapper,
+  ko,
   jQuery,
   Condition
 ) {

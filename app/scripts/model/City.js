@@ -14,7 +14,7 @@
   "model.weather.Condition",
   "model.weather.Forecast",
   "model.weather.Location",
-  "model.weather.Wind"
+  "model.weather.Wind",
   "knockout"
 ], function(
   debug,

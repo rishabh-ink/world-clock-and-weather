@@ -51,8 +51,8 @@ function(
           debug.log("viewmodel.Home", "fetchLocation", "Got location", { data: data });
 
           if("undefined" !== typeof data.coords) {
-            self.city.location.geo.lat(data.coords.lat);
-            self.city.location.geo.long(data.coords.long);
+            self.city.weather.location.geo.lat(data.coords.latitude);
+            self.city.weather.location.geo.long(data.coords.longitude);
           }
 
           self.fetchData();
@@ -68,10 +68,10 @@ function(
     Module.prototype.fetchData = function() {
       debug.log("viewmodel.Home", "fetchData");
 
-      if("" !== self.city.location.geo.lat()) {
-        self.fetchWeather(self.city.location.geo.getGeoLocationString());
+      if("" !== self.city.weather.location.geo.lat()) {
+        self.fetchWeather(self.city.weather.location.geo.getGeoLocationString());
       } else {
-        self.fetchWeather(self.city.location.city());
+        self.fetchWeather(self.city.weather.location.city());
       }
     };
 

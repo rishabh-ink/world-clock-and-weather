@@ -15,8 +15,9 @@
   Storage,
   Constants,
   ErrorHandler,
-  Mapper
-  ko) {
+  Mapper,
+  ko
+) {
   "use strict";
 
   var Module = function() {

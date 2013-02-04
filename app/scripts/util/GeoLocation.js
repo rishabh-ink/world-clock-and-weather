@@ -34,7 +34,7 @@ function(
 				  self.position = p;
 				  debug.log("util.GeoLocation", "Acquired geolocation", self.position);
 
-				  deferred.resolve();
+				  deferred.resolve(self.position);
 				});
 			} else {
 				debug.warn("util.GeoLocation", "geolocation not available");
