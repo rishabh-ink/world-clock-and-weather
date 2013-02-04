@@ -79,8 +79,13 @@
     debug.log("main", "Setting up jQuery Mobile page event handlers...");
 
     jQuery(document).on("pageshow", function(event) {
-      debug.log("main", "pageshow", { 'event': event, 'pageName': ($(event.target).data("page-name")) });
-      ko.applyBindings(viewModels.home, jQuery("[data-page-name='home']"));
+      var pageNode = $(event.target);
+
+      debug.log("main", "pageshow", { 'event': event, 'pageNode': pageNode });
+
+      ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
     });
+
+    jQuery.mobile.changePage("pages/home.html");
   });
 })();
