@@ -25,8 +25,7 @@ function(
 			debug.log("util.Network.init");
 			$.ajaxSetup({
 			  type: "GET",
-			  dataType: "jsonp",
-			  jsonp: "_callback"
+			  dataType: "json"
 			});
 		};
 

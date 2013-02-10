@@ -13,7 +13,7 @@ define({
 
 	api: {
 		test: {
-			baseUrl: "http://localhost:3501/data/sample-city.json",
+			baseUrl: "http://localhost:3501/data/sample-cities.json",
 			methods: {
 			}
 		},
