@@ -12,6 +12,12 @@ define({
 	},
 
 	api: {
+		test: {
+			baseUrl: "http://localhost:3501/data/sample-city.json",
+			methods: {
+			}
+		},
+
 		pipes: {
 			baseUrl: "http://pipes.yahoo.com/pipes/pipe.run",
 			methods: {

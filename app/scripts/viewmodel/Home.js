@@ -60,7 +60,11 @@ function(
 
         // Failure callback
         function() {
-          // TODO Try to get a manual user location input
+          debug.warn("viewmodel.Home", "fetchLocation", "Failed to get geo-location.");
+        },
+
+        function() {
+          debug.warn("viewmodel.Home", "fetchLocation", "Waiting for location...");
         }
       );
     };
@@ -97,6 +101,11 @@ function(
         // Failure callback
         function() {
           debug.warn("viewmodel.Home", "fetchWeather", "AJAX failed, Unable to setup weather.");
+        },
+
+        // Progress callback
+        function() {
+          debug.log("viewmodel.Home", "fetchWeather", "Waiting for network...");
         }
       );
     };
