@@ -101,11 +101,6 @@ function(
         // Failure callback
         function() {
           debug.warn("viewmodel.Home", "fetchWeather", "AJAX failed, Unable to setup weather.");
-        },
-
-        // Progress callback
-        function() {
-          debug.log("viewmodel.Home", "fetchWeather", "Waiting for network...");
         }
       );
     };

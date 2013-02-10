@@ -83,9 +83,13 @@
 
       debug.log("main", "pageshow", { 'event': event, 'pageNode': pageNode });
 
+      debug.log("main", "pageshow", "Applying bindings", { viewmodel: pageNode.data("page-name") });
       ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
     });
 
-    jQuery.mobile.changePage("pages/home.html");
+    jQuery("#default").on("pageshow", function(event) {
+      debug.log("main", "pageshow on #default", "Changing page...");
+      jQuery.mobile.changePage("/pages/home.html");
+    });
   });
 })();
