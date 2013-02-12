@@ -70,13 +70,16 @@
     HomeViewModel,
     City
   ) {
+
     debug.log("main", "Starting application...");
 
     var viewModels = {
       home: HomeViewModel.create()
     };
 
-    debug.log("main", "Setting up jQuery Mobile page event handlers...");
+    debug.log("main", "Created view models...", {
+      viewModels: viewModels
+    });
 
     jQuery(document).on("pageshow", function(event) {
       var pageNode = $(event.target);
@@ -87,9 +90,10 @@
       ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
     });
 
-    jQuery("#default").on("pageshow", function(event) {
-      debug.log("main", "pageshow on #default", "Changing page...");
-      jQuery.mobile.changePage("/pages/home.html");
+    jQuery("#default").on("pageinit", function() {
+      debug.log("main", "Setting up jQuery Mobile page event handlers...");
+
+      //jQuery.mobile.changePage("/pages/home.html");
     });
   });
 })();
