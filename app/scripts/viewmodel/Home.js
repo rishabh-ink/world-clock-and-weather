@@ -45,7 +45,9 @@ function(
 
       var geo = GeoLocation.create();
 
-      geo.get().then(
+      var geoPromise = geo.get();
+
+      geoPromise.done(
         // Success callback
         function(data) {
           debug.log("viewmodel.Home", "fetchLocation", "Got location", { data: data });
@@ -56,15 +58,13 @@ function(
           }
 
           self.fetchData();
-        },
+        }
+      );
 
+      geoPromise.fail(
         // Failure callback
         function() {
           debug.warn("viewmodel.Home", "fetchLocation", "Failed to get geo-location.");
-        },
-
-        function() {
-          debug.warn("viewmodel.Home", "fetchLocation", "Waiting for location...");
         }
       );
     };

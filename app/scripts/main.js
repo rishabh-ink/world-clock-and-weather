@@ -9,8 +9,8 @@
     'lib.use':                   "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
     'jquery':                    "../components/jquery/jquery", // jquery.com
     'knockout':                  "../components/knockoutjs/index", // knockoutjs.com
-    'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile", // jquerymobile.com
-    'lib.debug':                 "../components/console-js/console", // https://code.google.com/p/console-js
+    'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile-1.3.0-beta.1", // jquerymobile.com
+    'lib.debug':                 "../components/javascript-debug/ba-debug", //
 
     'util.Storage':              "util/Storage",
     'util.Constants':            "util/Constants",
@@ -46,7 +46,7 @@
 
     use: {
       'lib.debug': {
-        'attach': "console"
+        'attach': "debug"
       },
 
       'lib.jquery-mobile': {
@@ -76,7 +76,11 @@
       home: HomeViewModel.create()
     };
 
-    debug.log("main", "Setting up jQuery Mobile page event handlers...");
+    debug.log("main", "Setting up jQuery Mobile page event handlers...", jQuery("#home"));
+
+    jQuery("#home").on("pageinit", function(event) {
+      debug.log("init");
+    });
 
     jQuery(document).on("pageshow", function(event) {
       var pageNode = $(event.target);
@@ -85,12 +89,6 @@
 
       debug.log("main", "pageshow", "Applying bindings", { viewmodel: pageNode.data("page-name") });
       ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
-    });
-
-    jQuery("#default").on("pageinit", function() {
-      debug.log("main", "Setting up jQuery Mobile page event handlers...");
-
-      // jQuery.mobile.changePage("/pages/home.html");
     });
   });
 })();
