@@ -10,7 +10,7 @@
     'jquery':                    "../components/jquery/jquery", // jquery.com
     'knockout':                  "../components/knockoutjs/index", // knockoutjs.com
     'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile", // jquerymobile.com
-    'lib.debug':                 "../components/javascript-debug/ba-debug", // benalman.com/code/projects/javascript-debug
+    'lib.debug':                 "../components/console-js/console", // https://code.google.com/p/console-js
 
     'util.Storage':              "util/Storage",
     'util.Constants':            "util/Constants",
@@ -46,7 +46,7 @@
 
     use: {
       'lib.debug': {
-        'attach': "debug"
+        'attach': "console"
       },
 
       'lib.jquery-mobile': {
@@ -87,9 +87,16 @@
       ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
     });
 
+<<<<<<< HEAD
     jQuery("#default").on("pageshow", function(event) {
       debug.log("main", "pageshow on #default", "Changing page...");
       jQuery.mobile.changePage("/pages/home.html");
+=======
+    jQuery("#default").on("pageinit", function() {
+      debug.log("main", "Setting up jQuery Mobile page event handlers...");
+
+      // jQuery.mobile.changePage("/pages/home.html");
+>>>>>>> 6c44690... Added console.js.
     });
   });
 })();
