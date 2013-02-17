@@ -87,16 +87,10 @@
       ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
     });
 
-<<<<<<< HEAD
-    jQuery("#default").on("pageshow", function(event) {
-      debug.log("main", "pageshow on #default", "Changing page...");
-      jQuery.mobile.changePage("/pages/home.html");
-=======
     jQuery("#default").on("pageinit", function() {
       debug.log("main", "Setting up jQuery Mobile page event handlers...");
 
       // jQuery.mobile.changePage("/pages/home.html");
->>>>>>> 6c44690... Added console.js.
     });
   });
 })();
