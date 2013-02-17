@@ -6,6 +6,7 @@
     "jquery-mobile": "http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.zip",
     "knockoutjs": "http://knockoutjs.com/downloads/knockout-2.2.1.js",
     "javascript-debug": "git://github.com/cowboy/javascript-debug.git",
+    "console-js": "https://console-js.googlecode.com/files/console-0.1.zip",
     "requirejs": "~2.1.2",
     "requirejs-domready": "~2.0.1",
     "requirejs-use": "git://github.com/tbranyen/use.js.git",
