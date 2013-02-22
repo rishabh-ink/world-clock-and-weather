@@ -1,6 +1,8 @@
 World Clock and Weather
 -----------------------
 
+## Introduction
+
 A world clock and weather app for Firefox OS.
 
 Version: **0.0.0**
@@ -9,8 +11,16 @@ Developer: **[Rishabh Rao](http://rishabhsrao.github.com)**
 
 License: **[Apache License 2.0](world-clock-and-weather/blob/master/LICENSE.md)**
 
+## Technologies used
 
-#### Build instructions
+* KnockoutJS
+* Yeoman.io
+* RequireJS
+* jQuery deferred
+* HTML5 GeoLocation API
+* Yahoo! Weather API via Yahoo! Query Language and Yahoo! Pipes (http://pipes.yahoo.com/pipes/pipe.info?_id=687279a3ea30ea78c978b1bf6e235055)
+
+## Build instructions
 
 This project's library dependencies are listed in [component.json](world-clock-and-weather/blob/master/component.json).
 
