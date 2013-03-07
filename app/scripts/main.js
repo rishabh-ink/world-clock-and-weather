@@ -9,7 +9,7 @@
     'lib.use':                   "../components/requirejs-use/use", // documentup.com/tbranyen/use.js
     'jquery':                    "../components/jquery/jquery", // jquery.com
     'knockout':                  "../components/knockoutjs/index", // knockoutjs.com
-    'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile-1.3.0-beta.1", // jquerymobile.com
+    'lib.jquery-mobile':         "../components/jquery-mobile/jquery.mobile-1.3.0", // jquerymobile.com
     'lib.debug':                 "../components/javascript-debug/ba-debug", //
 
     'util.Storage':              "util/Storage",
@@ -56,6 +56,7 @@
   });
 
   require([
+    "domready",
     "jquery",
     "knockout",
     "lib.use!lib.jquery-mobile",
@@ -63,6 +64,7 @@
     "viewmodel.Home",
     "model.City"
   ], function(
+    domReady,
     jQuery,
     ko,
     jQm,
@@ -70,25 +72,28 @@
     HomeViewModel,
     City
   ) {
-    debug.log("main", "Starting application...");
+    domReady(function() {
 
-    var viewModels = {
-      home: HomeViewModel.create()
-    };
+      var viewModels = {
+        home: HomeViewModel.create()
+      };
 
-    debug.log("main", "Setting up jQuery Mobile page event handlers...", jQuery("#home"));
+      debug.info("main", "Application initialized...");
 
-    jQuery("#home").on("pageinit", function(event) {
-      debug.log("init");
-    });
+      jQuery(document).on("pageinit", function(event) {
+        var pageName = jQuery(event.target).data("page-name");
+        debug.info("pageinit fired.", pageName);
 
-    jQuery(document).on("pageshow", function(event) {
-      var pageNode = $(event.target);
+        ko.applyBindings(viewModels[pageName], event.target);
+      });
 
-      debug.log("main", "pageshow", { 'event': event, 'pageNode': pageNode });
+      jQuery(document).on("pageremove", function(event) {
+        debug.info("pageremove fired.", jQuery(event.target).data("page-name"));
+      });
 
-      debug.log("main", "pageshow", "Applying bindings", { viewmodel: pageNode.data("page-name") });
-      ko.applyBindings(viewModels[pageNode.data("page-name")], pageNode.get(0));
+      jQuery.mobile.navigate("/cities.html");
+
+
     });
   });
 })();
