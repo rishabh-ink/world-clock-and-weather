@@ -37,6 +37,8 @@ function(
       self.city = City.create();
       self.network = Network.create();
 
+      self.test = ko.observable("hello");
+
       self.fetchLocation();
     };
 

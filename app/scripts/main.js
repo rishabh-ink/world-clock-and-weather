@@ -81,19 +81,23 @@
       debug.info("main", "Application initialized...");
 
       jQuery(document).on("pageinit", function(event) {
-        var pageName = jQuery(event.target).data("page-name");
-        debug.info("pageinit fired.", pageName);
+        var page = {};
 
-        ko.applyBindings(viewModels[pageName], event.target);
+        page.node = jQuery(event.target);
+        page.name = page.node.data("page-name");
+
+        debug.info("pageinit fired.", page);
+
+        ko.applyBindings(viewModels[page.name], page.node.get(0));
       });
 
       jQuery(document).on("pageremove", function(event) {
-        debug.info("pageremove fired.", jQuery(event.target).data("page-name"));
+        debug.info("pageremove fired.", page);
       });
 
-      jQuery.mobile.navigate("/cities.html");
-
-
+      jQuery(document).ready(function() {
+        jQuery.mobile.changePage("/home.html");
+      });
     });
   });
 })();
