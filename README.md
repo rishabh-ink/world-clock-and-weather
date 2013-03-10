@@ -27,3 +27,14 @@ This project's library dependencies are listed in [component.json](world-clock-a
 Just run `bower install` in the top level directory of this project to download the dependencies.
 
 Once done, you can run `yeoman server` to run locally or `yeoman build` to generate a build.
+
+## Logic
+
+1. Query localStorage for data
+2. If found,
+    load from it
+3. If not found,
+    get geo-location
+    make AJAX request
+    save to localStorage
+    load from it
