@@ -1,9 +1,0 @@
-{
-  "name": "requirejs-use",
-  "version": "0.0.0",
-  "commit": "dd3e6853bbb6a23c3dd57b5efc12e00363ea3d62",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tbranyen/use.js.git"
-  }
-}

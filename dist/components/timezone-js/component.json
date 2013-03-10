@@ -1,8 +1,0 @@
-{
-  "name": "timezone-js",
-  "version": "0.4.4",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mde/timezone-js.git"
-  }
-}
