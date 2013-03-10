@@ -36,10 +36,25 @@ function(
 
       self.city = City.create();
       self.network = Network.create();
+      self.storage = Storage.create();
 
       self.test = ko.observable("hello");
+    };
+
+    Module.prototype.refresh = function() {
+      debug.log("viewmodel.Home", "refresh");
 
       self.fetchLocation();
+
+      // var cacheStatus = self.load();
+
+      // if(false === cacheStatus) {
+      //   debug.log("viewmodel.Home", "refresh", "Data not found in cache.");
+      //   self.fetchLocation();
+
+      //   debug.log("viewmodel.Home", "refresh", "Saving to localStorage...");
+      //   self.save();
+      // }
     };
 
     Module.prototype.fetchLocation = function() {
@@ -78,6 +93,27 @@ function(
         self.fetchWeather(self.city.weather.location.getGeoLocationString());
       } else {
         self.fetchWeather(self.city.weather.location.city());
+      }
+    };
+
+    Module.prototype.save = function() {
+      debug.log("viewmodel.Home", "save");
+
+      self.storage.save(Constants.keyrings.storage.HOME_CITY, self.city);
+    };
+
+    Module.prototype.load = function() {
+      debug.log("viewmodel.Home", "load");
+
+      var data = null;
+
+      if(Constants.errors.storage.FOUND === self.storage.isAlreadyAvailable(Constants.keyrings.storage.HOME_CITY)) {
+        data = self.storage.load(Constants.keyrings.storage.HOME_CITY);
+        self.city.applyMappings(data);
+
+        return true;
+      } else {
+        return false;
       }
     };
 
