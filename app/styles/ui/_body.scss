@@ -1,47 +1,67 @@
-.weather-today-page {
-  .current-city {
-    text-align: center;
+.today.cartographer {
+  background-image: url("../images/cartographer.png");
+}
+
+.location {
+  @extend .ui-grid-solo;
+
+  .city,
+  .country {
+    @extend .ui-block-a;
   }
 
-  .current-city {
-    font-size: 2.5em;
+  .city {
+    font-size: $fontSizeHuge;
   }
 
-  .current-place-headers {
-    margin: 0 auto 2em auto;
-  }
-
-  .current-temperature-average {
-    font-size: 1.6em;
-  }
-
-  .current-time {
-    font-size: 1.6em;
-  }
-
-  .current-temperature-high-low {
-    .low {
-      color: #AAAAAA;
-    }
-  }
-
-  .forecast {
-    font-size: 0.8em;
-    text-align: center;
-    margin: 2em auto;
-  }
-
-  .panel-weather {
-    text-align: right;
-  }
-
-  .current-country {
-    text-align: center;
+  .country {
+    font-size: $fontSizeBig;
   }
 }
 
-.weather-forecast-page {
-  .city-temperature {
-    font-size: 1.2em;
+.info {
+  @extend .ui-grid-b;
+  margin-top: $marginBig;
+
+  .current-temperature {
+    @extend .ui-block-a;
+
+    .value {
+      font-size: $fontSizeEnormous;
+    }
+
+    .units {
+      font-size: $fontSizeBig;
+    }
+  }
+
+  .icon {
+    @extend .ui-block-b;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+
+      display: block;
+      margin: auto;
+    }
+  }
+
+  .text {
+    @extend .ui-block-c;
+    @extend .clearfix;
+
+    div {
+      text-align: right;
+    }
+
+    .condition-text {
+      font-size: $fontSizeBig;
+    }
+
+    .condition-date {
+      color: $grayLight;
+      font-size: $fontSizeSmall;
+    }
   }
 }
