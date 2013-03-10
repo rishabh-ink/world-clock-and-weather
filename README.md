@@ -5,7 +5,7 @@ World Clock and Weather
 
 A world clock and weather app for Firefox OS.
 
-Version: **0.0.0**
+Version: **0.0.1**
 
 Developer: **[Rishabh Rao](http://rishabhsrao.github.com)**
 
