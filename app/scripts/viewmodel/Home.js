@@ -34,6 +34,8 @@ function(
     Module.prototype.init = function() {
       debug.log("viewmodel.Home", "init");
 
+
+      self.available = ko.observable(false);
       self.city = City.create();
       self.network = Network.create();
       self.storage = Storage.create();
@@ -133,6 +135,8 @@ function(
           } else {
             debug.log("viewmodel.Home", "fetchWeather", "Data received, applying mappings...");
             self.city.applyMappings(data.value.items[0]);
+
+            self.available(true);
           }
         },
 

@@ -6,12 +6,21 @@
 </head>
 <body>
     <div class="today cartographer" data-page-name="home" data-role="page" data-theme="a">
+        <!-- <div data-role="panel" id="main-menu" data-display="overlay">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-icon="settings"><a href="#">Settings</a></li>
+            </ul>
+        </div> -->
         <header data-role="header">
-            <a href="/" data-icon="home">Home</a>
-            <h1>Today</h1>
+            <a href="#main-menu" data-icon="bars">Menu</a>
+            <h1>Weather</h1>
+            <!-- ko if: available -->
             <button data-bind="click: refresh" data-icon="refresh">Refresh</button>
+            <!-- /ko -->
         </header>
         <section data-role="content">
+            <!-- ko if: available -->
             <div class="location">
                 <div class="city">
                     <span data-bind="text: city.weather.location.city"></span>
@@ -31,10 +40,17 @@
                     <div class="condition-date" data-bind="text: city.weather.condition.date"></div>
                 </div>
             </div>
-            <div class="forecast">
-                <div class="tomorrow"></div>
-                <div class="day-after"></div>
-            </div>
+            <!-- /ko -->
+
+            <!-- ko ifnot: available -->
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <h2>Welcome!</h2>
+                    <p>This is a <span class="label label-important">pre-alpha</span> version. It lacks a lot of features (caching, user experience etc.) and may be buggy.</p>
+                    <p>Just tap the Start button below to get the latest weather.</p>
+                    <button data-bind="click: refresh" data-icon="arrow-r">Start</button></div>
+                </div>
+            <!-- /ko -->
         </section>
     </div>
 </body>
