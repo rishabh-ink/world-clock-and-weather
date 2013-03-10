@@ -26,6 +26,7 @@
     'model.weather.Astronomy':   "model/weather/Astronomy",
     'model.weather.Condition':   "model/weather/Condition",
     'model.weather.Forecast':    "model/weather/Forecast",
+    'model.weather.Units':       "model/weather/Units",
 
     'viewmodel.Home':            "viewmodel/Home"
     },

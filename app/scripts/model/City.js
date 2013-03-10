@@ -15,6 +15,7 @@
   "model.weather.Forecast",
   "model.weather.Location",
   "model.weather.Wind",
+  "model.weather.Units",
   "knockout"
 ], function(
   debug,
@@ -28,6 +29,7 @@
   Forecast,
   Location,
   Wind,
+  Units,
   ko
 ) {
   "use strict";
@@ -44,7 +46,8 @@
         atmosphere: Atmosphere.create(),
         astronomy: Astronomy.create(),
         condition: Condition.create(),
-        forecast: Forecast.create()
+        forecast: Forecast.create(),
+        units: Units.create()
       };
     };
 
@@ -66,6 +69,10 @@
 
         if("undefined" !== typeof (data['yweather:astronomy'])) {
           self.weather.astronomy.applyMappings(data['yweather:astronomy']);
+        }
+
+        if("undefined" !== typeof (data['yweather:units'])) {
+          self.weather.units.applyMappings(data['yweather:units']);
         }
 
         if("undefined" !== typeof (data.item)) {
