@@ -90,7 +90,7 @@ define({
 			},
 
 			weezle: {
-				path: "images/weather-icons",
+				path: "images/weather-icons/",
 				base: "weezle_",
 				extension: ".png",
 				mapping: {
@@ -148,5 +148,4 @@ define({
 			}
 		}
 	}
-		icons:
 });
