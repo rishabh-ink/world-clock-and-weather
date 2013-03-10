@@ -1,0 +1,9 @@
+{
+  "name": "console-js",
+  "main": "",
+  "version": "0.0.0",
+  "repository": {
+    "type": "asset",
+    "url": "https://console-js.googlecode.com/files/console-0.1.zip"
+  }
+}

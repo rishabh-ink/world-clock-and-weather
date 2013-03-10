@@ -1,0 +1,9 @@
+{
+  "name": "javascript-debug",
+  "version": "0.0.0",
+  "commit": "3b8043c8a54a9842228d90f905cc5adf3bc962bd",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cowboy/javascript-debug.git"
+  }
+}
