@@ -25,12 +25,24 @@
     Module.prototype.init = function() {
       debug.log("model.weather.Condition", "init");
 
-      self.code = ko.observable("");
+      self.code = ko.observable("3200");
       self.date = ko.observable("");
       self.temp = ko.observable("");
       self.text = ko.observable("");
       self.high = ko.observable("");
       self.low = ko.observable("");
+
+      self.icon = ko.computed(function() {
+        var url =
+          Constants.icons.themes.weezle.path +
+          Constants.icons.themes.weezle.base +
+          Constants.icons.themes.weezle.mapping[self.code()] +
+          Constants.icons.themes.weezle.extension;
+
+        debug.log("model.weather.Condition", "init", "Generated image URL", url);
+
+        return url;
+      });
     };
 
     Module.prototype.applyMappings = function(data) {
