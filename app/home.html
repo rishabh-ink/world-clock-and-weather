@@ -7,10 +7,22 @@
 <body>
     <div data-page-name="home" data-role="page" data-theme="a">
         <header data-role="header">
+            <a href="/" data-icon="home">Home</a>
             <h1>Home</h1>
+            <button data-bind="click: refresh" data-icon="refresh">Refresh</button>
         </header>
         <section data-role="content">
-          <div class="city" data-bind="text: test"></div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a"><i class="icon-globe"></i> <span data-bind="text: city.weather.location.city"></span>, <span data-bind="text: city.weather.location.country"></span></div>
+            </div>
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><span data-bind="text: city.weather.condition.temp"></span></div>
+                <div class="ui-block-b"><img data-bind="attr: { src: city.weather.condition.icon, alt: city.weather.condition.text }" /></div>
+                <div class="ui-block-c"></div>
+            </div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a"><span data-bind="text: city.weather.condition.text"></span></div>
+            </div>
         </section>
     </div>
 </body>
