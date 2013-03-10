@@ -1,0 +1,22 @@
+@media all and (max-width: 30em) {
+  /* line 6, ../../../../app/styles/override/vendor/jquery-mobile.scss */
+  .ui-responsive-mobile-landscape .ui-block-a,
+  .ui-responsive-mobile-landscape .ui-block-b,
+  .ui-responsive-mobile-landscape .ui-block-c,
+  .ui-responsive-mobile-landscape .ui-block-d,
+  .ui-responsive-mobile-landscape .ui-block-e {
+    width: 100%;
+    float: none;
+  }
+}
+@media all and (max-width: 20em) {
+  /* line 17, ../../../../app/styles/override/vendor/jquery-mobile.scss */
+  .ui-responsive-mobile-portrait .ui-block-a,
+  .ui-responsive-mobile-portrait .ui-block-b,
+  .ui-responsive-mobile-portrait .ui-block-c,
+  .ui-responsive-mobile-portrait .ui-block-d,
+  .ui-responsive-mobile-portrait .ui-block-e {
+    width: 100%;
+    float: none;
+  }
+}
